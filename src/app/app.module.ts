@@ -9,11 +9,13 @@ import { AjoutComponent } from './ajout/ajout.component';
 import { NavComponent } from './nav/nav.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
+import {HttpClientModule} from '@angular/common/http'
+import { FormsModule } from '@angular/forms';
 const routes: Routes = [
   { path: '', component: AccueilComponent },
   { path: 'accueil', component: AccueilComponent },
   { path: 'ajout', component: AjoutComponent },
-  { path: 'detail', component: DetailComponent },
+  { path: 'detail/:idKA', component: DetailComponent },
 ]
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
