@@ -8,6 +8,7 @@ import { DetailComponent } from './detail/detail.component';
 import { AjoutComponent } from './ajout/ajout.component';
 import { NavComponent } from './nav/nav.component';
 import { RouterModule, Routes } from '@angular/router';
+import { FooterComponent } from './footer/footer.component';
 const routes: Routes = [
   { path: '', component: AccueilComponent },
   { path: 'accueil', component: AccueilComponent },
@@ -20,7 +21,8 @@ const routes: Routes = [
     AccueilComponent,
     DetailComponent,
     AjoutComponent,
-    NavComponent
+    NavComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
