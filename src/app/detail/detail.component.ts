@@ -42,5 +42,42 @@ export class DetailComponent implements OnInit {
       })
   }
 
+  //////////////////////////////// Aimer ka////////////////////
+
+  aimer(){
+    this.form.idUser=1
+    this.form.idKA=this.un_ka.idKA
+    console.log(this.form)
+    this.add_aime(this.form)
+  }
+
+  add_aime(aime:any){
+    /*
+    aime:any={
+      iduser:'int(11)',
+      idKa:'int(11)',
+      date:'datetime'
+    }
+    */
+    //transformation des parametres à envoyer
+    let formdata=new FormData()
+    for (const key in aime) {
+      formdata.append(key,aime[key])
+    }
+
+    let api_url="http://192.168.1.10/sunuka.com/backend_php/aime/add" 
+    this.http.post(api_url,formdata).subscribe((reponse:any)=>{
+      //when success
+      if(reponse.status){
+        console.log("Opération effectuée avec succés sur la table aime. Réponse= ",reponse)
+      }else{
+        console.log("L'opération sur la table aime a échoué. Réponse= ",reponse)
+      }
+    },
+    (error:any)=>{
+      //when error
+      console.log("Erreur inconnue! ",error)
+    })
+  }
 
 }
