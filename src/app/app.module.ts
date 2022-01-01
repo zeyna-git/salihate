@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { UnKaComponent } from './un-ka/un-ka.component';
 import { UnKa2Component } from './un-ka2/un-ka2.component';
 import { UnKa1Component } from './un-ka1/un-ka1.component';
+import { DatePipe } from '@angular/common'
 const routes: Routes = [
   { path: '', component: AccueilComponent },
   { path: 'accueil', component: AccueilComponent },
@@ -39,7 +40,7 @@ const routes: Routes = [
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

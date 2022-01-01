@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { GlobalService } from '../service/global.service';
+import { DatePipe } from '@angular/common'
 
 @Component({
   selector: 'app-ajout',
@@ -9,12 +10,13 @@ import { GlobalService } from '../service/global.service';
 })
 export class AjoutComponent implements OnInit {
   form:any={}
-  constructor(private http:HttpClient,public global:GlobalService) { }
+  constructor(private http:HttpClient,public global:GlobalService,public datepipe: DatePipe) { }
 
   ngOnInit(): void {
   }
   ajouter(){
     this.form.idUser=1
+    this.form.date=this.datepipe.transform(new Date(), 'yyyy-MM-dd HH:mm:ss')
     console.log(this.form)
     this.add_ka(this.form)
   }

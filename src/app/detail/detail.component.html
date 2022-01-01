@@ -16,21 +16,33 @@
                 </div>
             </header> -->
             <!-- <span class="image featured"><img src="assets/images/pic01.jpg" alt="" /></span> -->
-            <article app-un-ka1 [un_ka]="un_ka" >
-     
+            <article app-un-ka1 [un_ka]="un_ka">
+
             </article>
             <p>{{un_ka.texte}}</p>
             <h3>Les commentaires</h3>
-            <p>
-                pas de commentaires
-            </p>
+            <ul class="les_commentaires">
+                <li *ngIf="les_commentaires.length==0">Pas de commentaires</li>
+                <li *ngFor="let item of les_commentaires">{{item.texte}} <br>
+                    <span class="nombre_reponse">Réponses({{item.les_reponses.length}})</span><a
+                        (click)="item.bool=!item.bool"
+                        class="repondre_commentaire">{{item.bool?"annuler":"répondre"}}</a>
+                    <form *ngIf="item.bool">
+                        <input type="text" [name]="'commentaire_'+item.idComm" [(ngModel)]="item.reponse">
+                        <input type="submit" [name]="valider" value="Valider" (click)="repondre_comentaire(item)">
+                    </form>
+                    <ul>
+                        <li *ngFor="let une_reponse of item.les_reponses">{{une_reponse.texte}}
+                        </li>
+                    </ul>
+                </li>
+            </ul>
             <form>
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Contenu</label>
-                    <input class="form-control" name="texte"
-                        [(ngModel)]="form.texte" type="text"/>
+                    <textarea class="form-control" name="texte" [(ngModel)]="form.texte" rows="3"> </textarea>
                 </div>
-                <a class="icon solid fa-comment">{{un_ka.nombre_commentaire}}</a>
+                <input type="submit" name="valider" value="Valider" (click)="valider()">
             </form>
         </article>
 
