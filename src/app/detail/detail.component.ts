@@ -14,12 +14,12 @@ export class DetailComponent implements OnInit {
   reponse: any = {}
   un_ka: any = {}
   les_commentaires: any = []
-  constructor(private aroute: ActivatedRoute, private http: HttpClient, public global: GlobalService,public datepipe: DatePipe) {
+  constructor(private aroute: ActivatedRoute, private http: HttpClient, public global: GlobalService, public datepipe: DatePipe) {
     aroute.params.subscribe((params: any) => {
       console.log(params)
       if (params["idKA"]) {
         this.get_ka(params["idKA"])
-        
+
       } else {
         alert("Url incorrect")
       }
@@ -62,7 +62,7 @@ export class DetailComponent implements OnInit {
       formdata.append(key, commentaire[key])
     }
 
-    let api_url = this.global.host+"commentaire/add"
+    let api_url = this.global.host + "commentaire/add"
     this.http.post(api_url, formdata).subscribe((reponse: any) => {
       //when success
       if (reponse.status) {
@@ -81,7 +81,7 @@ export class DetailComponent implements OnInit {
       })
   }
   get_commentaire() {
-    let api_url = this.global.host + "commentaire/get_nombre_reponse?idKA="+this.un_ka.idKA;
+    let api_url = this.global.host + "commentaire/get_nombre_reponse?idKA=" + this.un_ka.idKA;
     this.http.get(api_url).subscribe((reponse: any) => {
       //when success
       if (reponse.status) {
@@ -105,17 +105,18 @@ export class DetailComponent implements OnInit {
       this.reponse.idUser = this.global.user.idUser
       this.reponse.date = this.datepipe.transform(new Date(), 'yyyy-MM-dd HH:mm:ss')
       this.reponse.idParent = item.idComm
+
+
       let formdata = new FormData()
       for (const key in this.reponse) {
         formdata.append(key, this.reponse[key])
       }
-
-      let api_url = this.global.host+"commentaire/add"
+      let api_url = this.global.host + "commentaire/add"
       this.http.post(api_url, formdata).subscribe((reponse: any) => {
         //when success
         if (reponse.status) {
-          item.reponse=undefined
-          item.bool=false
+          item.reponse = undefined
+          item.bool = false
           this.reponse = {}
           this.get_commentaire()
           alert("Opération effectuée avec succés sur la table commentaire")
@@ -130,4 +131,35 @@ export class DetailComponent implements OnInit {
         })
     }
   }
+  //////////////////////////////// Aimer ka////////////////////
+
+  aimer() {
+    this.form.idUser = 1
+    this.form.idKA = this.un_ka.idKA
+    console.log(this.form)
+    this.add_aime(this.form)
+  }
+
+  add_aime(aime: any) {
+    //transformation des parametres à envoyer
+    let formdata = new FormData()
+    for (const key in aime) {
+      formdata.append(key, aime[key])
+    }
+
+    let api_url = "http://192.168.1.10/sunuka.com/backend_php/aime/add"
+    this.http.post(api_url, formdata).subscribe((reponse: any) => {
+      //when success
+      if (reponse.status) {
+        console.log("Opération effectuée avec succés sur la table aime. Réponse= ", reponse)
+      } else {
+        console.log("L'opération sur la table aime a échoué. Réponse= ", reponse)
+      }
+    },
+      (error: any) => {
+        //when error
+        console.log("Erreur inconnue! ", error)
+      })
+  }
+
 }

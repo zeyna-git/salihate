@@ -4,20 +4,18 @@
 
         <!-- Post -->
         <article class="post">
-            <!-- <header>
-                <div class="title">
-                    <h2><a href="#">Magna sed adipiscing</a></h2>
-                    <p>Lorem ipsum dolor amet nullam consequat etiam feugiat</p>
+            <article >
+                <div class="container">
+                    <img src="assets/images/pic01.jpg" alt="Snow" style="width:100%;">
+                    <ul class="bottom-left stats">
+                        <li><a class="icon solid fa-heart" (click)="aimer()">{{un_ka.nombre_aime}}</a></li>
+                        <li><a class="icon solid fa-comment">{{un_ka.nombre_commentaire}}</a></li>
+                    </ul>
+                    <div class="top-left">#{{un_ka.idKA}}</div>
+                    <!-- <div class="top-right">Top Right</div> -->
+                    <div class="bottom-right">{{un_ka.date}}</div>
+                    <div class="centered">{{un_ka.description| slice:0:200}}</div>
                 </div>
-                <div class="meta">
-                    <time class="published" datetime="2015-11-01">November 1, 2015</time>
-                    <a href="#" class="author"><span class="name">Jane Doe</span><img src="assets/images/avatar.jpg"
-                            alt="" /></a>
-                </div>
-            </header> -->
-            <!-- <span class="image featured"><img src="assets/images/pic01.jpg" alt="" /></span> -->
-            <article app-un-ka1 [un_ka]="un_ka">
-
             </article>
             <p>{{un_ka.texte}}</p>
             <h3>Les commentaires</h3>
