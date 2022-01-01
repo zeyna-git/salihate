@@ -2,8 +2,8 @@
     <div class="container" id="main">
         <form>
             <div class="form-group">
-                <label for="exampleFormControlTextarea1">Description</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description"
+                <label for="exampleFormControlTextarea1">Description(maximum 100 caractères)</label>
+                <textarea maxlength="200" class="form-control" id="exampleFormControlTextarea1" rows="3" name="description"
                     [(ngModel)]="form.description"></textarea>
             </div>
             <div class="form-group">

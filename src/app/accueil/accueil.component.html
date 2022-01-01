@@ -2,36 +2,11 @@
 
   <!-- Main -->
   <div id="main">
-
+    <h2><a  [routerLink]="['ajout']">Ajouter un nouveau KA</a></h2>
     <!-- Post -->
-    <article *ngFor="let un_ka of les_ka" class="post">
-      <header>
-        <div class="title">
-          <h2><a  [routerLink]="['detail']">Ka numero {{un_ka.idKA}}</a></h2>
-          <!-- <p>Lorem ipsum dolor amet nullam consequat etiam feugiat</p> -->
-        </div>
-        <div class="meta">
-          <time class="published" datetime="2015-11-01">{{un_ka.date|date:'d MMMM YYYY'|uppercase}}</time>
-          <!-- <a [routerLink]="['detail']" class="author"><span class="name">Jane Doe</span><img src="assets/images/avatar.jpg" alt="" /></a> -->
-        </div>
-      </header>
-      <a  [routerLink]="['detail',un_ka.idKA]" class="image featured"><img src="assets/images/pic01.jpg" alt="" /></a>
-      <p>{{un_ka.texte| slice:0:200}}</p>
-      <footer>
-        <ul class="actions">
-          <li><a  [routerLink]="['detail',un_ka.idKA]" class="button large">Continuer la lecture</a></li>
-        </ul>
-        <ul class="stats">
-          <li><a href="#">General</a></li>
-          <li><a href="#" class="icon solid fa-heart">28</a></li>
-          <li><a href="#" class="icon solid fa-comment">128</a></li>
-        </ul>
-      </footer>
+    <article app-un-ka1 [un_ka]="un_ka" *ngFor="let un_ka of les_ka" >
+     
     </article>
-
-
-
-
     <!-- Pagination -->
     <ul class="actions pagination">
       <li><a href="" class="disabled button large previous">Previous Page</a></li>
@@ -57,43 +32,8 @@
       <div class="mini-posts">
 
         <!-- Mini Post -->
-        <article class="mini-post">
-          <header>
-            <h3><a  [routerLink]="['detail']">Vitae sed condimentum</a></h3>
-            <time class="published" datetime="2015-10-20">October 20, 2015</time>
-            <a href="#" class="author"><img src="assets/images/avatar.jpg" alt="" /></a>
-          </header>
-          <a  [routerLink]="['detail']" class="image"><img src="assets/images/pic04.jpg" alt="" /></a>
-        </article>
-
-        <!-- Mini Post -->
-        <article class="mini-post">
-          <header>
-            <h3><a  [routerLink]="['detail']">Rutrum neque accumsan</a></h3>
-            <time class="published" datetime="2015-10-19">October 19, 2015</time>
-            <a href="#" class="author"><img src="assets/images/avatar.jpg" alt="" /></a>
-          </header>
-          <a  [routerLink]="['detail']" class="image"><img src="assets/images/pic05.jpg" alt="" /></a>
-        </article>
-
-        <!-- Mini Post -->
-        <article class="mini-post">
-          <header>
-            <h3><a  [routerLink]="['detail']">Odio congue mattis</a></h3>
-            <time class="published" datetime="2015-10-18">October 18, 2015</time>
-            <a href="#" class="author"><img src="assets/images/avatar.jpg" alt="" /></a>
-          </header>
-          <a  [routerLink]="['detail']" class="image"><img src="assets/images/pic06.jpg" alt="" /></a>
-        </article>
-
-        <!-- Mini Post -->
-        <article class="mini-post">
-          <header>
-            <h3><a  [routerLink]="['detail']">Enim nisl veroeros</a></h3>
-            <time class="published" datetime="2015-10-17">October 17, 2015</time>
-            <a href="#" class="author"><img src="assets/images/avatar.jpg" alt="" /></a>
-          </header>
-          <a  [routerLink]="['detail']" class="image"><img src="assets/images/pic07.jpg" alt="" /></a>
+        <article app-un-ka2 [un_ka]="un_ka" *ngFor="let un_ka of les_ka" >
+          
         </article>
 
       </div>

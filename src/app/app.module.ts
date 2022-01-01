@@ -11,6 +11,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
 import {HttpClientModule} from '@angular/common/http'
 import { FormsModule } from '@angular/forms';
+import { UnKaComponent } from './un-ka/un-ka.component';
+import { UnKa2Component } from './un-ka2/un-ka2.component';
+import { UnKa1Component } from './un-ka1/un-ka1.component';
 const routes: Routes = [
   { path: '', component: AccueilComponent },
   { path: 'accueil', component: AccueilComponent },
@@ -24,7 +27,10 @@ const routes: Routes = [
     DetailComponent,
     AjoutComponent,
     NavComponent,
-    FooterComponent
+    FooterComponent,
+    UnKaComponent,
+    UnKa2Component,
+    UnKa1Component
   ],
   imports: [
     BrowserModule,

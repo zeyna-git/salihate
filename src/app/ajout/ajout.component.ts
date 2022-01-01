@@ -33,7 +33,7 @@ date:'datetime'
       formdata.append(key,ka[key])
     }
 
-    let api_url="https://api.h24code.com/sunuka_backend/sunuka.com/backend_php/ka/add" 
+    let api_url="https://api.h24code.com/sunuka_backend/ka/add" 
     this.http.post(api_url,formdata).subscribe((reponse:any)=>{
       //when success
       if(reponse.status){
