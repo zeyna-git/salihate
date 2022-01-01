@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { GlobalService } from '../service/global.service';
 
 @Component({
   selector: 'app-ajout',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AjoutComponent implements OnInit {
   form:any={}
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,public global:GlobalService) { }
 
   ngOnInit(): void {
   }
@@ -33,7 +34,7 @@ date:'datetime'
       formdata.append(key,ka[key])
     }
 
-    let api_url="https://api.h24code.com/sunuka_backend/ka/add" 
+    let api_url=this.global.host+"ka/add" 
     this.http.post(api_url,formdata).subscribe((reponse:any)=>{
       //when success
       if(reponse.status){

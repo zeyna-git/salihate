@@ -1,7 +1,9 @@
-
 <div class="container" [routerLink]="['detail',un_ka.idKA]">
     <img src="assets/images/pic01.jpg" alt="Snow" style="width:100%;">
-    <!-- <div class="bottom-left">Bottom Left</div> -->
+    <ul class="bottom-left stats">
+        <li><a class="icon solid fa-heart">{{un_ka.nombre_aime}}</a></li>
+        <li><a class="icon solid fa-comment">{{un_ka.nombre_commentaire}}</a></li>
+    </ul>
     <div class="top-left">#{{un_ka.idKA}}</div>
     <!-- <div class="top-right">Top Right</div> -->
     <div class="bottom-right">{{un_ka.date}}</div>

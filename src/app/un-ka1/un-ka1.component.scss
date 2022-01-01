@@ -9,6 +9,7 @@
     position: absolute;
     bottom: 8px;
     left: 16px;
+
   }
   
   .top-left {
@@ -34,9 +35,13 @@
     position: absolute;
     top: 50%;
     left: 50%;
+    width: 90%;
     transform: translate(-50%, -50%);
     font-size: 20px;
   }
   .container:hover .centered{
       font-size: 25px;
+  }
+  .bottom-left {
+    list-style: none;
   }
