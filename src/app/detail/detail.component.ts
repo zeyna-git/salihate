@@ -147,7 +147,7 @@ export class DetailComponent implements OnInit {
       formdata.append(key, aime[key])
     }
 
-    let api_url = "http://192.168.1.10/sunuka.com/backend_php/aime/add"
+    let api_url = this.global.host+"aime/add"
     this.http.post(api_url, formdata).subscribe((reponse: any) => {
       //when success
       if (reponse.status) {
